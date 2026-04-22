@@ -1,0 +1,33 @@
+# Git ignore patterns
+
+# Node dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+build/
+dist/
+.next
+out/
+
+# IDE and editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Optional npm cache directory
+.npm
+

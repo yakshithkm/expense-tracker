@@ -1,0 +1,42 @@
+/* Transactions Page Styles */
+.transactions-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.transactions-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 2rem;
+}
+
+.form-section {
+  position: relative;
+}
+
+.list-section {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .transactions-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .form-section {
+    position: relative;
+  }
+}
+
+@media (max-width: 768px) {
+  .transactions-page {
+    padding: 1rem;
+  }
+
+  .transactions-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
