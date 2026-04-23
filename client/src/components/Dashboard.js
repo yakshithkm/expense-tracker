@@ -2,25 +2,45 @@
  * Dashboard Component
  * Main dashboard showing balance summary and key stats
  */
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useTransactions } from '../context/TransactionContext';
 import '../styles/Dashboard.css';
 import { formatCurrency } from '../utils/formatters';
+import Analytics from './Analytics';
+import { sumByType } from '../utils/dateUtils';
 
 const Dashboard = () => {
-  const { analytics, fetchAnalytics, loading } = useTransactions();
+  const {
+    analytics,
+    transactions,
+    fetchTransactions,
+    fetchAnalytics,
+    loading,
+    error,
+  } = useTransactions();
 
   useEffect(() => {
+    fetchTransactions();
     fetchAnalytics();
-  }, [fetchAnalytics]);
+  }, [fetchAnalytics, fetchTransactions]);
+
+  const fallbackSummary = useMemo(() => {
+    const totalIncome = sumByType(transactions, 'income');
+    const totalExpense = sumByType(transactions, 'expense');
+    return {
+      totalIncome,
+      totalExpense,
+      balance: totalIncome - totalExpense,
+    };
+  }, [transactions]);
 
   if (loading) return <div className="loading">Loading...</div>;
 
-  const summary = analytics?.summary || {
-    balance: 0,
-    totalIncome: 0,
-    totalExpense: 0,
-  };
+  if (error) {
+    return <div className="error-message">{error}</div>;
+  }
+
+  const summary = analytics?.summary || fallbackSummary;
 
   return (
     <div className="dashboard">
@@ -39,6 +59,8 @@ const Dashboard = () => {
           <p className="stat-value">{formatCurrency(summary.totalExpense)}</p>
         </div>
       </div>
+
+      <Analytics />
     </div>
   );
 };
