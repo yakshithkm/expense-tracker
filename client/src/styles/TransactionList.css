@@ -63,7 +63,9 @@
 }
 
 .transaction-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.1fr;
+  align-items: center;
   margin-bottom: 0.75rem;
   border: 1px solid #2f2f2f;
   border-radius: 12px;
