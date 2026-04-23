@@ -67,7 +67,11 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <Analytics />
+      <section className="dashboard-analytics-wrap" aria-label="Dashboard analytics overview">
+        <div className="dashboard-section-divider" aria-hidden="true" />
+        <h3 className="dashboard-analytics-title">Analytics Overview</h3>
+        <Analytics />
+      </section>
     </div>
   );
 };

@@ -3,6 +3,7 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
+  animation: pageFadeIn 0.32s ease both;
 }
 
 .transaction-filters {
@@ -47,26 +48,41 @@
 
 .transactions-grid {
   display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+  align-items: start;
 }
 
 .form-section {
-  position: relative;
+  position: sticky;
+  top: 88px;
 }
 
 .list-section {
   width: 100%;
 }
 
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 1024px) {
   .transactions-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .form-section {
     position: relative;
+    top: 0;
   }
 }
 

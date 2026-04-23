@@ -20,7 +20,10 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <h1 className="navbar-title">💰 Expense Tracker</h1>
+        <Link to="/dashboard" className="navbar-brand" aria-label="Expense Tracker Dashboard Home">
+          <span className="brand-icon" aria-hidden="true">💰</span>
+          <span className="brand-text">Expense Tracker</span>
+        </Link>
         <div className="nav-links">
           <Link
             to="/dashboard"

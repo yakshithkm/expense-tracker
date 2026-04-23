@@ -23,6 +23,24 @@ const featureCards = [
   },
 ];
 
+const onboardingSteps = [
+  {
+    icon: '🧾',
+    title: 'Add Transactions',
+    description: 'Quickly record your income and expenses',
+  },
+  {
+    icon: '📊',
+    title: 'Track Your Spending',
+    description: 'View all transactions and filter easily',
+  },
+  {
+    icon: '📈',
+    title: 'Analyze Insights',
+    description: 'Understand patterns with charts and analytics',
+  },
+];
+
 const Landing = () => {
   return (
     <div className="landing-page">
@@ -64,7 +82,7 @@ const Landing = () => {
           </div>
         </section>
 
-        <section className="features-section">
+        <section className="features-section section-fade-in">
           <h2>Powerful Features at Your Fingertips</h2>
           <div className="features-grid">
             {featureCards.map((feature) => (
@@ -79,6 +97,19 @@ const Landing = () => {
                 </div>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="how-it-works-section section-fade-in">
+          <h2>How It Works</h2>
+          <div className="how-steps-grid">
+            {onboardingSteps.map((step) => (
+              <article key={step.title} className="how-step-card">
+                <span className="step-icon" aria-hidden="true">{step.icon}</span>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
               </article>
             ))}
           </div>

@@ -16,12 +16,14 @@
   backdrop-filter: blur(10px);
   background-color: rgba(18, 18, 18, 0.8);
   border-bottom: 1px solid var(--border-color);
+  min-height: 64px;
 }
 
 .landing-nav-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0.95rem 1.25rem;
+  height: 64px;
+  padding: 0 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,6 +37,7 @@
   align-items: center;
   gap: 0.45rem;
   font-weight: 700;
+  font-size: 1.05rem;
 }
 
 .brand-icon {
@@ -54,10 +57,14 @@
 .landing-btn {
   text-decoration: none;
   border-radius: 10px;
-  padding: 0.55rem 1rem;
+  padding: 0.5rem 1rem;
   font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
+  font-size: 0.92rem;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .landing-btn-secondary {
@@ -78,7 +85,7 @@
 }
 
 .landing-btn-primary:hover {
-  transform: translateY(-1px);
+  transform: scale(1.03);
   box-shadow: 0 10px 24px rgba(77, 182, 172, 0.25);
 }
 
@@ -91,6 +98,7 @@
 .landing-btn-outline:hover {
   border-color: var(--primary-color);
   color: var(--primary-color);
+  transform: scale(1.03);
 }
 
 .hero-section {
@@ -104,7 +112,7 @@
   max-width: 800px;
   text-align: center;
   margin: 0 auto;
-  animation: heroFadeIn 0.6s ease;
+  animation: sectionFadeUp 0.45s ease both;
 }
 
 .hero-content h1 {
@@ -140,6 +148,10 @@
   padding: 1rem 1.25rem 2.6rem;
 }
 
+.section-fade-in {
+  animation: sectionFadeUp 0.45s ease both;
+}
+
 .features-section h2 {
   text-align: center;
   color: #edf0f2;
@@ -158,12 +170,13 @@
   border-radius: 14px;
   box-shadow: 0 12px 22px rgba(0, 0, 0, 0.28);
   padding: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.4);
+  border-color: #3a3a3a;
 }
 
 .feature-image-wrap {
@@ -198,6 +211,56 @@
   color: var(--muted-text);
 }
 
+.how-it-works-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0.2rem 1.25rem 3rem;
+}
+
+.how-it-works-section h2 {
+  text-align: center;
+  color: #edf0f2;
+  margin-bottom: 1.25rem;
+}
+
+.how-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.how-step-card {
+  background-color: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.28);
+  padding: 1.1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.how-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.4);
+  border-color: #3a3a3a;
+}
+
+.step-icon {
+  font-size: 1.35rem;
+  display: inline-block;
+  margin-bottom: 0.55rem;
+}
+
+.how-step-card h3 {
+  margin: 0 0 0.35rem;
+  color: #f0f3f5;
+}
+
+.how-step-card p {
+  margin: 0;
+  color: var(--muted-text);
+}
+
 .landing-footer {
   margin-top: auto;
   border-top: 1px solid var(--border-color);
@@ -219,10 +282,10 @@
   text-decoration: underline;
 }
 
-@keyframes heroFadeIn {
+@keyframes sectionFadeUp {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -234,15 +297,26 @@
   .features-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .how-steps-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 680px) {
   .landing-nav-inner {
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0.75rem 1rem;
+    height: auto;
+    min-height: 64px;
   }
 
   .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .how-steps-grid {
     grid-template-columns: 1fr;
   }
 
