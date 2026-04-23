@@ -25,13 +25,22 @@ const Transactions = () => {
   }, [fetchTransactions]);
 
   const handleAddTransaction = async (formData) => {
+    let result;
+
     if (editingTransaction) {
-      await updateTransaction(editingTransaction._id, formData);
-      setEditingTransaction(null);
+      result = await updateTransaction(editingTransaction._id, formData);
+      if (result.success) {
+        setEditingTransaction(null);
+      }
     } else {
-      await addTransaction(formData);
+      result = await addTransaction(formData);
     }
-    fetchTransactions();
+
+    if (result.success) {
+      await fetchTransactions();
+    }
+
+    return result;
   };
 
   const handleEditTransaction = (transaction) => {
@@ -40,8 +49,10 @@ const Transactions = () => {
   };
 
   const handleDeleteTransaction = async (id) => {
-    await deleteTransaction(id);
-    fetchTransactions();
+    const result = await deleteTransaction(id);
+    if (result.success) {
+      await fetchTransactions();
+    }
   };
 
   return (
