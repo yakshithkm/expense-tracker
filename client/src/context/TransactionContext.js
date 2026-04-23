@@ -203,6 +203,9 @@ export const TransactionProvider = ({ children }) => {
   ]);
 
   const loading = isInitialLoading || isFetching;
+  const clearError = useCallback(() => {
+    setError(null);
+  }, []);
 
   return (
     <TransactionContext.Provider
@@ -214,6 +217,7 @@ export const TransactionProvider = ({ children }) => {
         error,
         analytics,
         hasLoadedInitialData,
+        clearError,
         fetchTransactions,
         fetchAnalytics,
         addTransaction,

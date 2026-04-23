@@ -16,6 +16,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import { useLocation } from 'react-router-dom';
 import { useTransactions } from '../context/TransactionContext';
 import '../styles/Analytics.css';
 import { formatCurrency } from '../utils/formatters';
@@ -58,6 +59,7 @@ const CategoryTooltip = ({ active, payload }) => {
 };
 
 const Analytics = () => {
+  const location = useLocation();
   const { authReady, isAuthenticated } = useAuth();
   const { transactions, fetchTransactions, loading, isInitialLoading, error } = useTransactions();
 
@@ -66,8 +68,14 @@ const Analytics = () => {
       return;
     }
 
+    // Fetch only on the dedicated analytics route to avoid duplicate calls when
+    // Analytics is rendered inside Dashboard.
+    if (location.pathname !== '/analytics') {
+      return;
+    }
+
     fetchTransactions();
-  }, [authReady, isAuthenticated, fetchTransactions]);
+  }, [authReady, isAuthenticated, fetchTransactions, location.pathname]);
 
   const expenseCategoryData = useMemo(
     () =>

@@ -2,7 +2,8 @@
  * Dashboard Component
  * Main dashboard showing balance summary and key stats
  */
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useTransactions } from '../context/TransactionContext';
 import '../styles/Dashboard.css';
 import { formatCurrency } from '../utils/formatters';
@@ -10,13 +11,25 @@ import Analytics from './Analytics';
 import { sumByType } from '../utils/dateUtils';
 
 const Dashboard = () => {
+  const location = useLocation();
   const {
     analytics,
     transactions,
+    fetchTransactions,
+    clearError,
     isInitialLoading,
     loading,
     error,
   } = useTransactions();
+
+  useEffect(() => {
+    if (location.pathname !== '/dashboard') {
+      return;
+    }
+
+    clearError();
+    fetchTransactions();
+  }, [location.pathname, fetchTransactions, clearError]);
 
   const fallbackSummary = useMemo(() => {
     const totalIncome = sumByType(transactions, 'income');
@@ -30,7 +43,7 @@ const Dashboard = () => {
 
   if (loading) return <div className="loading">Loading...</div>;
 
-  if (!isInitialLoading && error) {
+  if (location.pathname === '/dashboard' && !isInitialLoading && error) {
     return <div className="error-message">{error}</div>;
   }
 
