@@ -2,21 +2,12 @@
  * TransactionList Component
  * Display list of all transactions with edit/delete options
  */
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/TransactionList.css';
 import { formatCurrency, formatDate } from '../utils/formatters';
 
 const TransactionList = ({ transactions, loading, error, onEdit, onDelete }) => {
-  const [filter, setFilter] = useState('all');
-
-  const filteredTransactions =
-    filter === 'all'
-      ? transactions
-      : transactions.filter((tx) => tx.type === filter);
-
   const showEmptyAll = !loading && !error && transactions.length === 0;
-  const showEmptyFilter =
-    !loading && !error && transactions.length > 0 && filteredTransactions.length === 0;
 
   const confirmDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this transaction?')) {
@@ -48,35 +39,10 @@ const TransactionList = ({ transactions, loading, error, onEdit, onDelete }) => 
 
   return (
     <div className="transaction-list-container">
-      <div className="filter-buttons">
-        <button
-          className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
-          onClick={() => setFilter('all')}
-        >
-          All
-        </button>
-        <button
-          className={`filter-btn ${filter === 'income' ? 'active' : ''}`}
-          onClick={() => setFilter('income')}
-        >
-          Income
-        </button>
-        <button
-          className={`filter-btn ${filter === 'expense' ? 'active' : ''}`}
-          onClick={() => setFilter('expense')}
-        >
-          Expense
-        </button>
-      </div>
-
       {showEmptyAll ? (
         <div className="list-empty-state">
           <div className="empty-icon" aria-hidden="true">◌</div>
           <p>No transactions yet. Add your first expense.</p>
-        </div>
-      ) : showEmptyFilter ? (
-        <div className="list-empty-state">
-          <p>No transactions match this filter.</p>
         </div>
       ) : (
         <div className="transactions-list" role="table" aria-label="Transactions">
@@ -88,7 +54,7 @@ const TransactionList = ({ transactions, loading, error, onEdit, onDelete }) => 
             <p className="actions-col">Actions</p>
           </div>
 
-          {filteredTransactions.map((transaction) => (
+          {transactions.map((transaction) => (
             <div
               key={transaction._id}
               className={`transaction-row transaction-item ${transaction.type}`}
