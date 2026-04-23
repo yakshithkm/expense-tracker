@@ -10,6 +10,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [authReady, setAuthReady] = useState(false);
   const [error, setError] = useState(null);
 
   // Initialize auth from localStorage
@@ -22,13 +23,16 @@ export const AuthProvider = ({ children }) => {
         .then((res) => {
           setUser(res.data.user);
         })
-        .catch((err) => {
-          console.error('Failed to fetch user:', err);
+        .catch(() => {
           localStorage.removeItem('token');
         })
-        .finally(() => setLoading(false));
+        .finally(() => {
+          setLoading(false);
+          setAuthReady(true);
+        });
     } else {
       setLoading(false);
+      setAuthReady(true);
     }
   }, []);
 
@@ -79,6 +83,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         user,
         loading,
+        authReady,
         error,
         register,
         login,

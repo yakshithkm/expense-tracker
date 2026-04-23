@@ -2,7 +2,7 @@
  * Dashboard Component
  * Main dashboard showing balance summary and key stats
  */
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useTransactions } from '../context/TransactionContext';
 import '../styles/Dashboard.css';
 import { formatCurrency } from '../utils/formatters';
@@ -13,16 +13,10 @@ const Dashboard = () => {
   const {
     analytics,
     transactions,
-    fetchTransactions,
-    fetchAnalytics,
+    isInitialLoading,
     loading,
     error,
   } = useTransactions();
-
-  useEffect(() => {
-    fetchTransactions();
-    fetchAnalytics();
-  }, [fetchAnalytics, fetchTransactions]);
 
   const fallbackSummary = useMemo(() => {
     const totalIncome = sumByType(transactions, 'income');
@@ -36,7 +30,7 @@ const Dashboard = () => {
 
   if (loading) return <div className="loading">Loading...</div>;
 
-  if (error) {
+  if (!isInitialLoading && error) {
     return <div className="error-message">{error}</div>;
   }
 

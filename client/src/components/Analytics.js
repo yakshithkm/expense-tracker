@@ -25,6 +25,7 @@ import {
   groupTransactionsByMonth,
   sumByType,
 } from '../utils/dateUtils';
+import { useAuth } from '../context/AuthContext';
 
 const COLORS = ['#ef5350', '#4db6ac', '#42a5f5', '#ffa726', '#ab47bc', '#66bb6a', '#26c6da'];
 
@@ -57,11 +58,16 @@ const CategoryTooltip = ({ active, payload }) => {
 };
 
 const Analytics = () => {
-  const { transactions, fetchTransactions, loading, error } = useTransactions();
+  const { authReady, isAuthenticated } = useAuth();
+  const { transactions, fetchTransactions, loading, isInitialLoading, error } = useTransactions();
 
   useEffect(() => {
+    if (!authReady || !isAuthenticated) {
+      return;
+    }
+
     fetchTransactions();
-  }, [fetchTransactions]);
+  }, [authReady, isAuthenticated, fetchTransactions]);
 
   const expenseCategoryData = useMemo(
     () =>
@@ -89,7 +95,7 @@ const Analytics = () => {
   }, [transactions]);
 
   if (loading) return <div className="loading">Loading analytics...</div>;
-  if (error) return <div className="error-message">{error}</div>;
+  if (!isInitialLoading && error) return <div className="error-message">{error}</div>;
 
   if (!transactions.length) {
     return <div className="loading">Add transactions to unlock analytics.</div>;

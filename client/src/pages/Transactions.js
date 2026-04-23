@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import TransactionForm from '../components/TransactionForm';
 import TransactionList from '../components/TransactionList';
 import { useTransactions } from '../context/TransactionContext';
+import { useAuth } from '../context/AuthContext';
 import '../styles/TransactionsPage.css';
 
 const CATEGORY_OPTIONS = [
@@ -24,6 +25,7 @@ const CATEGORY_OPTIONS = [
 ];
 
 const Transactions = () => {
+  const { authReady, isAuthenticated } = useAuth();
   const {
     transactions,
     loading,
@@ -43,13 +45,17 @@ const Transactions = () => {
   });
 
   useEffect(() => {
+    if (!authReady || !isAuthenticated) {
+      return;
+    }
+
     fetchTransactions({
       type: filters.type === 'all' ? '' : filters.type,
       category: filters.category === 'all' ? '' : filters.category,
       startDate: filters.startDate,
       endDate: filters.endDate,
     });
-  }, [fetchTransactions, filters]);
+  }, [fetchTransactions, filters, authReady, isAuthenticated]);
 
   const handleFilterChange = (event) => {
     const { name, value } = event.target;
@@ -66,6 +72,10 @@ const Transactions = () => {
   };
 
   const handleAddTransaction = async (formData) => {
+    if (!authReady || !isAuthenticated) {
+      return { success: false, error: 'Authentication not ready' };
+    }
+
     let result;
 
     if (editingTransaction) {
@@ -95,6 +105,10 @@ const Transactions = () => {
   };
 
   const handleDeleteTransaction = async (id) => {
+    if (!authReady || !isAuthenticated) {
+      return;
+    }
+
     const result = await deleteTransaction(id);
     if (result.success) {
       await fetchTransactions({

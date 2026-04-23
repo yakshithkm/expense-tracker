@@ -15,9 +15,9 @@ import Analytics from './components/Analytics';
 import './App.css';
 
 const AppContent = () => {
-  const { isAuthenticated, loading } = useAuth();
+  const { isAuthenticated, loading, authReady } = useAuth();
 
-  if (loading) {
+  if (!authReady || loading) {
     return <div className="loading-container">Loading...</div>;
   }
 
