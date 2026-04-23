@@ -4,8 +4,9 @@
  */
 import React, { useState } from 'react';
 import '../styles/TransactionList.css';
+import { formatCurrency, formatDate } from '../utils/formatters';
 
-const TransactionList = ({ transactions, loading, onEdit, onDelete }) => {
+const TransactionList = ({ transactions, loading, error, onEdit, onDelete }) => {
   const [filter, setFilter] = useState('all');
 
   const filteredTransactions =
@@ -13,7 +14,37 @@ const TransactionList = ({ transactions, loading, onEdit, onDelete }) => {
       ? transactions
       : transactions.filter((tx) => tx.type === filter);
 
-  if (loading) return <div className="loading">Loading transactions...</div>;
+  const showEmptyAll = !loading && !error && transactions.length === 0;
+  const showEmptyFilter =
+    !loading && !error && transactions.length > 0 && filteredTransactions.length === 0;
+
+  const confirmDelete = (id) => {
+    if (window.confirm('Are you sure you want to delete this transaction?')) {
+      onDelete(id);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="transaction-list-container">
+        <div className="list-loading-state" role="status" aria-live="polite">
+          <span className="list-spinner" />
+          <p>Loading transactions...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="transaction-list-container">
+        <div className="list-error-state" role="alert">
+          <p>Unable to load transactions.</p>
+          <span>{error}</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="transaction-list-container">
@@ -38,47 +69,61 @@ const TransactionList = ({ transactions, loading, onEdit, onDelete }) => {
         </button>
       </div>
 
-      {filteredTransactions.length === 0 ? (
-        <p className="no-transactions">No transactions found</p>
+      {showEmptyAll ? (
+        <div className="list-empty-state">
+          <div className="empty-icon" aria-hidden="true">◌</div>
+          <p>No transactions yet. Add your first expense.</p>
+        </div>
+      ) : showEmptyFilter ? (
+        <div className="list-empty-state">
+          <p>No transactions match this filter.</p>
+        </div>
       ) : (
-        <div className="transactions-list">
+        <div className="transactions-list" role="table" aria-label="Transactions">
+          <div className="transaction-row transaction-row-head" role="row">
+            <p>Category</p>
+            <p>Type</p>
+            <p>Date</p>
+            <p className="amount-col">Amount</p>
+            <p className="actions-col">Actions</p>
+          </div>
+
           {filteredTransactions.map((transaction) => (
-            <div key={transaction._id} className={`transaction-item ${transaction.type}`}>
+            <div
+              key={transaction._id}
+              className={`transaction-row transaction-item ${transaction.type}`}
+              role="row"
+            >
               <div className="transaction-info">
                 <p className="category">{transaction.category}</p>
                 {transaction.description && (
                   <p className="description">{transaction.description}</p>
                 )}
-                <p className="date">
-                  {new Date(transaction.date).toLocaleDateString()}
-                </p>
               </div>
+              <p className={`transaction-type-pill ${transaction.type}`}>
+                {transaction.type}
+              </p>
+              <p className="date">{formatDate(transaction.date)}</p>
               <div className="transaction-amount">
                 <p className={`amount ${transaction.type}`}>
-                  {transaction.type === 'income' ? '+' : '-'}₹
-                  {transaction.amount.toFixed(2)}
+                  {transaction.type === 'income' ? '+' : '-'}
+                  {formatCurrency(transaction.amount)}
                 </p>
               </div>
               <div className="transaction-actions">
                 <button
                   onClick={() => onEdit(transaction)}
                   className="edit-btn"
-                  title="Edit"
+                  title="Edit transaction"
                 >
-                  ✏️
+                  Edit
                 </button>
                 <button
-                  onClick={() => {
-                    if (
-                      window.confirm('Are you sure you want to delete this transaction?')
-                    ) {
-                      onDelete(transaction._id);
-                    }
-                  }}
+                  onClick={() => confirmDelete(transaction._id)}
                   className="delete-btn"
-                  title="Delete"
+                  title="Delete transaction"
                 >
-                  🗑️
+                  Delete
                 </button>
               </div>
             </div>

@@ -4,15 +4,19 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background:
+    radial-gradient(circle at top left, rgba(77, 182, 172, 0.2), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(239, 83, 80, 0.16), transparent 45%),
+    var(--bg-color);
   padding: 2rem;
 }
 
 .auth-box {
-  background-color: white;
+  background-color: var(--card-color);
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-color);
   width: 100%;
   max-width: 400px;
 }
@@ -31,42 +35,29 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: var(--dark-color);
-}
-
-.form-group input {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 5px rgba(78, 205, 196, 0.3);
+  color: var(--text-color);
 }
 
 .submit-btn {
   width: 100%;
   background-color: var(--primary-color);
-  color: white;
+  color: #06201d;
   padding: 0.75rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.2s ease;
 }
 
 .submit-btn:hover:not(:disabled) {
-  background-color: #3da9b0;
+  background-color: #65cbc2;
 }
 
 .submit-btn:disabled {
-  background-color: #ccc;
+  background-color: #3a3a3a;
+  color: #888;
   cursor: not-allowed;
 }
 
@@ -87,10 +78,10 @@
 }
 
 .error-message {
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  color: #721c24;
+  background-color: rgba(239, 83, 80, 0.1);
+  border: 1px solid rgba(239, 83, 80, 0.4);
+  color: #ffc4c2;
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: 10px;
   margin-bottom: 1rem;
 }

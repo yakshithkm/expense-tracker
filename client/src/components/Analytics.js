@@ -18,6 +18,7 @@ import {
 } from 'recharts';
 import { useTransactions } from '../context/TransactionContext';
 import '../styles/Analytics.css';
+import { formatCurrency } from '../utils/formatters';
 
 const COLORS = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE'];
 
@@ -73,7 +74,7 @@ const Analytics = () => {
                 cx="50%"
                 cy="50%"
                 labelLine={false}
-                label={({ name, value }) => `${name}: ₹${value.toFixed(0)}`}
+                label={({ name, value }) => `${name}: ${formatCurrency(value)}`}
                 outerRadius={100}
                 fill="#8884d8"
                 dataKey="value"
@@ -82,7 +83,7 @@ const Analytics = () => {
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip formatter={(value) => `₹${value.toFixed(2)}`} />
+              <Tooltip formatter={(value) => formatCurrency(value)} />
             </PieChart>
           </ResponsiveContainer>
         </div>
@@ -99,7 +100,7 @@ const Analytics = () => {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
               <YAxis />
-              <Tooltip formatter={(value) => `₹${value.toFixed(2)}`} />
+              <Tooltip formatter={(value) => formatCurrency(value)} />
               <Legend />
               <Bar dataKey="income" fill="#4ECDC4" name="Income" />
               <Bar dataKey="expense" fill="#FF6B6B" name="Expense" />
@@ -119,7 +120,7 @@ const Analytics = () => {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} />
               <YAxis />
-              <Tooltip formatter={(value) => `₹${value.toFixed(2)}`} />
+              <Tooltip formatter={(value) => formatCurrency(value)} />
               <Legend />
               <Bar dataKey="income" fill="#4ECDC4" name="Income" />
               <Bar dataKey="expense" fill="#FF6B6B" name="Expense" />

@@ -19,18 +19,19 @@
 }
 
 .stat-card {
-  background-color: white;
-  border-radius: 8px;
+  background-color: var(--card-color);
+  border-radius: 14px;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
   text-align: center;
   border-left: 5px solid var(--primary-color);
-  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .stat-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.45);
 }
 
 .stat-card h3 {

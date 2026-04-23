@@ -5,6 +5,7 @@
 import React, { useEffect } from 'react';
 import { useTransactions } from '../context/TransactionContext';
 import '../styles/Dashboard.css';
+import { formatCurrency } from '../utils/formatters';
 
 const Dashboard = () => {
   const { analytics, fetchAnalytics, loading } = useTransactions();
@@ -27,15 +28,15 @@ const Dashboard = () => {
       <div className="stats-container">
         <div className="stat-card balance">
           <h3>Balance</h3>
-          <p className="stat-value">₹{summary.balance.toFixed(2)}</p>
+          <p className="stat-value">{formatCurrency(summary.balance)}</p>
         </div>
         <div className="stat-card income">
           <h3>Total Income</h3>
-          <p className="stat-value">₹{summary.totalIncome.toFixed(2)}</p>
+          <p className="stat-value">{formatCurrency(summary.totalIncome)}</p>
         </div>
         <div className="stat-card expense">
           <h3>Total Expense</h3>
-          <p className="stat-value">₹{summary.totalExpense.toFixed(2)}</p>
+          <p className="stat-value">{formatCurrency(summary.totalExpense)}</p>
         </div>
       </div>
     </div>

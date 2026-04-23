@@ -1,8 +1,9 @@
 /* Transaction List Styles */
 .transaction-list-container {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-color);
+  border-radius: 14px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-color);
   overflow: hidden;
 }
 
@@ -10,18 +11,18 @@
   display: flex;
   gap: 1rem;
   padding: 1.5rem;
-  background-color: #f9f9f9;
+  background-color: #181818;
   border-bottom: 1px solid var(--border-color);
 }
 
 .filter-btn {
   padding: 0.5rem 1rem;
-  border: 2px solid var(--border-color);
-  background-color: white;
+  border: 1px solid var(--border-color);
+  background-color: #232323;
   color: var(--text-color);
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s ease;
   font-weight: 500;
 }
 
@@ -32,34 +33,55 @@
 
 .filter-btn.active {
   background-color: var(--primary-color);
-  color: white;
+  color: #06201d;
   border-color: var(--primary-color);
 }
 
 .transactions-list {
   max-height: 600px;
   overflow-y: auto;
+  padding: 0.5rem 1rem 1rem;
+}
+
+.transaction-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.transaction-row-head {
+  color: var(--muted-text);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.9rem 1rem 0.6rem;
+}
+
+.transaction-row-head p {
+  margin: 0;
 }
 
 .transaction-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem;
-  border-bottom: 1px solid var(--border-color);
-  transition: background-color 0.3s;
+  margin-bottom: 0.75rem;
+  border: 1px solid #2f2f2f;
+  border-radius: 12px;
+  padding: 1rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .transaction-item:hover {
-  background-color: #f9f9f9;
+  background-color: #242424;
+  border-color: #3a3a3a;
 }
 
 .transaction-item.income {
-  border-left: 5px solid var(--success-color);
+  border-left: 4px solid var(--success-color);
 }
 
 .transaction-item.expense {
-  border-left: 5px solid var(--secondary-color);
+  border-left: 4px solid var(--secondary-color);
 }
 
 .transaction-info {
@@ -67,31 +89,51 @@
 }
 
 .transaction-info .category {
-  font-weight: bold;
+  font-weight: 700;
   color: var(--dark-color);
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .transaction-info .description {
-  color: #666;
-  margin: 0.25rem 0;
-  font-size: 0.9rem;
-}
-
-.transaction-info .date {
-  color: #999;
-  margin: 0;
+  color: var(--muted-text);
+  margin: 0.25rem 0 0;
   font-size: 0.85rem;
 }
 
+.transaction-type-pill {
+  width: fit-content;
+  text-transform: capitalize;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+.transaction-type-pill.income {
+  color: #93f5ad;
+  background-color: rgba(72, 199, 116, 0.15);
+}
+
+.transaction-type-pill.expense {
+  color: #ffb3b1;
+  background-color: rgba(239, 83, 80, 0.15);
+}
+
+.date {
+  color: var(--muted-text);
+  margin: 0;
+  font-size: 0.92rem;
+}
+
 .transaction-amount {
-  text-align: right;
-  margin: 0 2rem;
+  text-align: left;
+  margin: 0;
 }
 
 .transaction-amount .amount {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
   margin: 0;
 }
@@ -106,42 +148,84 @@
 
 .transaction-actions {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  justify-content: flex-end;
 }
 
 .edit-btn,
 .delete-btn {
-  padding: 0.5rem 0.75rem;
-  border: none;
-  border-radius: 4px;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
 .edit-btn {
-  background-color: #4ECDC4;
-  color: white;
+  background-color: rgba(77, 182, 172, 0.16);
+  border-color: rgba(77, 182, 172, 0.45);
+  color: #91e3dc;
 }
 
 .edit-btn:hover {
-  background-color: #3da9b0;
+  background-color: rgba(77, 182, 172, 0.28);
 }
 
 .delete-btn {
-  background-color: #FF6B6B;
-  color: white;
+  background-color: rgba(239, 83, 80, 0.15);
+  border-color: rgba(239, 83, 80, 0.45);
+  color: #ffb5b3;
 }
 
 .delete-btn:hover {
-  background-color: #e55555;
+  background-color: rgba(239, 83, 80, 0.28);
 }
 
-.no-transactions {
+.list-empty-state,
+.list-error-state,
+.list-loading-state {
   text-align: center;
-  padding: 2rem;
-  color: #999;
-  font-size: 1.1rem;
+  padding: 2.2rem 1rem;
+  color: var(--muted-text);
+}
+
+.list-error-state {
+  color: #ffbdbb;
+}
+
+.list-error-state p {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+}
+
+.list-error-state span {
+  font-size: 0.92rem;
+}
+
+.empty-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-bottom: 0.55rem;
+  color: var(--primary-color);
+}
+
+.list-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(77, 182, 172, 0.24);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 0.7rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 768px) {
@@ -149,23 +233,33 @@
     flex-wrap: wrap;
   }
 
+  .transaction-row-head {
+    display: none;
+  }
+
   .transaction-item {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 1rem;
+  }
+
+  .transaction-row {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
   }
 
   .transaction-amount {
     margin: 0;
-    align-self: flex-end;
   }
 
   .transaction-actions {
     width: 100%;
+    justify-content: flex-start;
   }
 
   .edit-btn,
   .delete-btn {
-    flex: 1;
+    min-width: 92px;
   }
 }

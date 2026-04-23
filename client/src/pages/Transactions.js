@@ -12,6 +12,7 @@ const Transactions = () => {
   const {
     transactions,
     loading,
+    error,
     fetchTransactions,
     addTransaction,
     updateTransaction,
@@ -78,6 +79,7 @@ const Transactions = () => {
           <TransactionList
             transactions={transactions}
             loading={loading}
+            error={error}
             onEdit={handleEditTransaction}
             onDelete={handleDeleteTransaction}
           />

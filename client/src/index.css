@@ -1,12 +1,16 @@
 /* Global Styles */
 :root {
-  --primary-color: #4ECDC4;
-  --secondary-color: #FF6B6B;
-  --dark-color: #2c3e50;
-  --light-color: #ecf0f1;
-  --text-color: #333;
-  --border-color: #ddd;
-  --success-color: #27ae60;
+  --primary-color: #4db6ac;
+  --secondary-color: #ef5350;
+  --bg-color: #121212;
+  --card-color: #1e1e1e;
+  --surface-color: #252525;
+  --dark-color: #f5f7f9;
+  --light-color: #101010;
+  --text-color: #e6e6e6;
+  --muted-text: #a9b0b8;
+  --border-color: #2f2f2f;
+  --success-color: #48c774;
   --warning-color: #f39c12;
 }
 
@@ -19,7 +23,7 @@
 html,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
+  background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
 }
@@ -41,15 +45,15 @@ button {
   cursor: pointer;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 button:hover {
   opacity: 0.9;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
 }
 
 button:disabled {
@@ -64,9 +68,11 @@ textarea {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--surface-color);
+  color: var(--text-color);
 }
 
 input:focus,
@@ -74,7 +80,12 @@ select:focus,
 textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 5px rgba(78, 205, 196, 0.3);
+  box-shadow: 0 0 0 3px rgba(77, 182, 172, 0.25);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted-text);
 }
 
 .loading {
@@ -96,19 +107,19 @@ textarea:focus {
 }
 
 .error-message {
-  background-color: #fff3cd;
-  border: 1px solid #ffc107;
-  color: #856404;
+  background-color: rgba(239, 83, 80, 0.12);
+  border: 1px solid rgba(239, 83, 80, 0.45);
+  color: #ffbdbb;
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: 10px;
   margin-bottom: 1rem;
 }
 
 .success-message {
-  background-color: #d4edda;
-  border: 1px solid #28a745;
-  color: #155724;
+  background-color: rgba(72, 199, 116, 0.12);
+  border: 1px solid rgba(72, 199, 116, 0.4);
+  color: #b6f0ca;
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: 10px;
   margin-bottom: 1rem;
 }
