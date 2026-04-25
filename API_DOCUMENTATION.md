@@ -18,7 +18,7 @@ Authorization: Bearer <YOUR_JWT_TOKEN>
 
 ---
 
-## 🔐 Authentication Endpoints
+## Authentication Endpoints
 
 ### 1. Register User
 

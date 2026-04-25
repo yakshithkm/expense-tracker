@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Landing.css';
 
@@ -25,17 +25,17 @@ const featureCards = [
 
 const onboardingSteps = [
   {
-    icon: '🧾',
+    icon: '',
     title: 'Add Transactions',
     description: 'Quickly record your income and expenses',
   },
   {
-    icon: '📊',
+    icon: '',
     title: 'Track Your Spending',
     description: 'View all transactions and filter easily',
   },
   {
-    icon: '📈',
+    icon: '',
     title: 'Analyze Insights',
     description: 'Understand patterns with charts and analytics',
   },
@@ -47,7 +47,7 @@ const Landing = () => {
       <header className="landing-navbar">
         <div className="landing-nav-inner">
           <Link to="/" className="landing-brand" aria-label="Expense Tracker Home">
-            <span className="brand-icon" aria-hidden="true">💰</span>
+            <span className="brand-icon" aria-hidden="true"></span>
             <span className="brand-text">Expense Tracker</span>
           </Link>
 
@@ -124,3 +124,4 @@ const Landing = () => {
 };
 
 export default Landing;
+

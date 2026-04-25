@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+﻿import React, { useMemo } from 'react';
 import '../styles/Insights.css';
 import { formatCurrency } from '../utils/formatters';
 import {
@@ -54,13 +54,13 @@ const Insights = ({ transactions = [] }) => {
       <h2>Insights</h2>
       <div className="insight-grid">
         <article className="insight-card">
-          <p className="insight-icon" aria-hidden="true">📅</p>
+          <p className="insight-icon" aria-hidden="true"></p>
           <h3>You spent {formatCurrency(insightData.currentMonthExpense)} this month</h3>
           <p>Track this number regularly to keep your monthly budget in control.</p>
         </article>
 
         <article className="insight-card">
-          <p className="insight-icon" aria-hidden="true">🥇</p>
+          <p className="insight-icon" aria-hidden="true"></p>
           {insightData.topCategory ? (
             <>
               <h3>
@@ -79,7 +79,7 @@ const Insights = ({ transactions = [] }) => {
         </article>
 
         <article className="insight-card">
-          <p className="insight-icon" aria-hidden="true">📈</p>
+          <p className="insight-icon" aria-hidden="true"></p>
           <h3>Month-over-month trend</h3>
           <p>{insightData.trendText}</p>
         </article>
@@ -89,3 +89,4 @@ const Insights = ({ transactions = [] }) => {
 };
 
 export default Insights;
+

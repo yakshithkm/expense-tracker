@@ -1,4 +1,4 @@
-# 📦 Installation Guide
+#  Installation Guide
 
 Complete step-by-step guide to set up the Expense Tracker application.
 
@@ -206,7 +206,7 @@ concurrently "cd server && npm start" "cd client && npm start"
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Issue: "Cannot find module" errors
 
@@ -269,7 +269,7 @@ set PORT=3001 && npm start
 
 ---
 
-## ✅ Verification Checklist
+##  Verification Checklist
 
 After installation, verify:
 
@@ -286,7 +286,7 @@ After installation, verify:
 
 ---
 
-## 📝 Environment Variables Reference
+##  Environment Variables Reference
 
 ### Server `.env` Variables
 
@@ -308,7 +308,7 @@ This means API calls to `/api/...` are forwarded to backend.
 
 ---
 
-## 🚀 Next Steps
+##  Next Steps
 
 1. **Local Development**:
    - Make changes to code
@@ -323,7 +323,7 @@ This means API calls to `/api/...` are forwarded to backend.
 
 ---
 
-## 💾 Backup and Version Control
+##  Backup and Version Control
 
 ### Initialize Git (if not cloned)
 
@@ -339,7 +339,7 @@ Already included in repository.
 
 ---
 
-## 📞 Getting Help
+##  Getting Help
 
 If you encounter issues:
 
@@ -351,4 +351,5 @@ If you encounter issues:
 
 ---
 
-**Installation complete! Happy expense tracking! 💰**
+**Installation complete! Happy expense tracking! **
+

@@ -1,84 +1,84 @@
-# 💰 Expense Tracker - Complete MERN Stack Application
+#  Expense Tracker - Complete MERN Stack Application
 
 A full-stack expense tracking web application built with **MongoDB, Express, React, and Node.js (MERN)**. Track your income, expenses, and visualize your financial data with interactive charts.
 
-## 🎯 Features
+##  Features
 
-- ✅ **User Authentication**: Secure registration and login with JWT
-- ✅ **Transaction Management**: Add, edit, delete income and expense transactions
-- ✅ **Dashboard**: View balance, total income, and total expenses at a glance
-- ✅ **Analytics**: Interactive charts showing category-wise and monthly analytics
-- ✅ **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
-- ✅ **Real-time Updates**: Instant feedback on all operations
-- ✅ **AWS Deployment Ready**: Optimized for AWS Free Tier deployment
+-  **User Authentication**: Secure registration and login with JWT
+-  **Transaction Management**: Add, edit, delete income and expense transactions
+-  **Dashboard**: View balance, total income, and total expenses at a glance
+-  **Analytics**: Interactive charts showing category-wise and monthly analytics
+-  **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
+-  **Real-time Updates**: Instant feedback on all operations
+-  **AWS Deployment Ready**: Optimized for AWS Free Tier deployment
 
 ---
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 expense-tracker/
-│
-├── client/                          # React Frontend
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Navbar.js
-│   │   │   ├── Login.js
-│   │   │   ├── Register.js
-│   │   │   ├── Dashboard.js
-│   │   │   ├── TransactionForm.js
-│   │   │   ├── TransactionList.js
-│   │   │   ├── Analytics.js
-│   │   │   └── ProtectedRoute.js
-│   │   ├── pages/
-│   │   │   └── Transactions.js
-│   │   ├── context/
-│   │   │   ├── AuthContext.js
-│   │   │   └── TransactionContext.js
-│   │   ├── styles/
-│   │   │   ├── Navbar.css
-│   │   │   ├── Auth.css
-│   │   │   ├── Dashboard.css
-│   │   │   ├── TransactionForm.css
-│   │   │   ├── TransactionList.css
-│   │   │   ├── TransactionsPage.css
-│   │   │   └── Analytics.css
-│   │   ├── App.js
-│   │   ├── App.css
-│   │   ├── index.js
-│   │   └── index.css
-│   ├── package.json
-│   └── .gitignore
-│
-├── server/                          # Express Backend
-│   ├── config/
-│   │   └── db.js                    # MongoDB connection
-│   ├── models/
-│   │   ├── User.js                  # User schema
-│   │   └── Transaction.js           # Transaction schema
-│   ├── controllers/
-│   │   ├── authController.js        # Auth logic
-│   │   └── transactionController.js # Transaction logic
-│   ├── routes/
-│   │   ├── authRoutes.js            # Auth endpoints
-│   │   └── transactionRoutes.js     # Transaction endpoints
-│   ├── middleware/
-│   │   └── auth.js                  # JWT verification
-│   ├── server.js                    # Main server file
-│   ├── package.json
-│   ├── .env.example
-│   ├── .env
-│   └── .gitignore
-│
-├── .gitignore
-└── README.md
+�
++-- client/                          # React Frontend
+�   +-- public/
+�   �   +-- index.html
+�   +-- src/
+�   �   +-- components/
+�   �   �   +-- Navbar.js
+�   �   �   +-- Login.js
+�   �   �   +-- Register.js
+�   �   �   +-- Dashboard.js
+�   �   �   +-- TransactionForm.js
+�   �   �   +-- TransactionList.js
+�   �   �   +-- Analytics.js
+�   �   �   +-- ProtectedRoute.js
+�   �   +-- pages/
+�   �   �   +-- Transactions.js
+�   �   +-- context/
+�   �   �   +-- AuthContext.js
+�   �   �   +-- TransactionContext.js
+�   �   +-- styles/
+�   �   �   +-- Navbar.css
+�   �   �   +-- Auth.css
+�   �   �   +-- Dashboard.css
+�   �   �   +-- TransactionForm.css
+�   �   �   +-- TransactionList.css
+�   �   �   +-- TransactionsPage.css
+�   �   �   +-- Analytics.css
+�   �   +-- App.js
+�   �   +-- App.css
+�   �   +-- index.js
+�   �   +-- index.css
+�   +-- package.json
+�   +-- .gitignore
+�
++-- server/                          # Express Backend
+�   +-- config/
+�   �   +-- db.js                    # MongoDB connection
+�   +-- models/
+�   �   +-- User.js                  # User schema
+�   �   +-- Transaction.js           # Transaction schema
+�   +-- controllers/
+�   �   +-- authController.js        # Auth logic
+�   �   +-- transactionController.js # Transaction logic
+�   +-- routes/
+�   �   +-- authRoutes.js            # Auth endpoints
+�   �   +-- transactionRoutes.js     # Transaction endpoints
+�   +-- middleware/
+�   �   +-- auth.js                  # JWT verification
+�   +-- server.js                    # Main server file
+�   +-- package.json
+�   +-- .env.example
+�   +-- .env
+�   +-- .gitignore
+�
++-- .gitignore
++-- README.md
 ```
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -126,7 +126,7 @@ App opens on `http://localhost:3000`
 
 ---
 
-## 🔐 Authentication Flow
+##  Authentication Flow
 
 1. **Register**: User creates account with name, email, password
 2. **Login**: User logs in with email and password
@@ -137,7 +137,7 @@ App opens on `http://localhost:3000`
 
 ---
 
-## 🗄️ Database Models
+##  Database Models
 
 ### User Model
 
@@ -170,7 +170,7 @@ App opens on `http://localhost:3000`
 
 ---
 
-## 🔌 API Endpoints
+##  API Endpoints
 
 ### Authentication
 
@@ -192,7 +192,7 @@ App opens on `http://localhost:3000`
 
 ---
 
-## 📊 Features Overview
+##  Features Overview
 
 ### Dashboard
 - **Balance Card**: Shows total balance (income - expenses)
@@ -212,7 +212,7 @@ App opens on `http://localhost:3000`
 
 ---
 
-## 🛠️ Tech Stack Details
+##  Tech Stack Details
 
 ### Frontend
 - **React 18**: UI library with hooks
@@ -233,7 +233,7 @@ App opens on `http://localhost:3000`
 
 ---
 
-## 💾 Local Development
+##  Local Development
 
 ### With Local MongoDB
 
@@ -255,7 +255,7 @@ PORT=5000
 
 ---
 
-## 🧪 Sample API Requests
+##  Sample API Requests
 
 ### Register User
 
@@ -297,7 +297,7 @@ curl -X POST http://localhost:5000/api/transactions \
 
 ---
 
-## 📱 Responsive Design
+##  Responsive Design
 
 The application is fully responsive:
 - **Desktop**: Multi-column layouts with full charts
@@ -306,7 +306,7 @@ The application is fully responsive:
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Backend Configuration
 
@@ -330,7 +330,7 @@ The application is fully responsive:
 
 ---
 
-## 🚨 Error Handling
+##  Error Handling
 
 ### Frontend
 - User-friendly error messages
@@ -346,7 +346,7 @@ The application is fully responsive:
 
 ---
 
-## 🔒 Security Features
+##  Security Features
 
 1. **Password Hashing**: bcryptjs with salt rounds
 2. **JWT Tokens**: Secure authentication
@@ -357,7 +357,7 @@ The application is fully responsive:
 
 ---
 
-## 📈 Performance Optimizations
+##  Performance Optimizations
 
 1. **Database Indexes**: On userId and category for faster queries
 2. **Lazy Loading**: Components load on demand
@@ -367,7 +367,7 @@ The application is fully responsive:
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### "Cannot find module" error
 ```bash
@@ -394,7 +394,7 @@ kill -9 <PID>
 
 ---
 
-## 📚 Additional Documentation
+##  Additional Documentation
 
 See separate documentation files:
 - [INSTALLATION.md](./INSTALLATION.md) - Detailed installation guide
@@ -404,22 +404,23 @@ See separate documentation files:
 
 ---
 
-## 📝 License
+##  License
 
 This project is open source and available under the MIT License.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
 
 ---
 
-## 📞 Support
+##  Support
 
 For issues, questions, or suggestions, please open an issue in the repository.
 
 ---
 
-**Happy Expense Tracking! 💰**
+**Happy Expense Tracking! **
+

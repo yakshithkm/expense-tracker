@@ -1,10 +1,10 @@
-# ⚡ Quick Start Guide
+#  Quick Start Guide
 
 Get the Expense Tracker app running in 10 minutes!
 
 ---
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Node.js (v14+)
 - MongoDB Atlas account
@@ -12,7 +12,7 @@ Get the Expense Tracker app running in 10 minutes!
 
 ---
 
-## 🚀 3-Step Setup
+##  3-Step Setup
 
 ### Step 1: Install Dependencies (2 minutes)
 
@@ -56,7 +56,7 @@ npm start
 
 ---
 
-## ✅ Test It Out
+##  Test It Out
 
 1. Open http://localhost:3000
 2. Click **Register**
@@ -67,35 +67,35 @@ npm start
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 expense-tracker/
-├── client/          (React - port 3000)
-├── server/          (Express - port 5000)
-├── README.md        (Overview)
-├── INSTALLATION.md  (Detailed setup)
-├── API_DOCUMENTATION.md
-├── DEPLOYMENT.md    (AWS)
-└── DEVELOPMENT.md   (Dev guidelines)
++-- client/          (React - port 3000)
++-- server/          (Express - port 5000)
++-- README.md        (Overview)
++-- INSTALLATION.md  (Detailed setup)
++-- API_DOCUMENTATION.md
++-- DEPLOYMENT.md    (AWS)
++-- DEVELOPMENT.md   (Dev guidelines)
 ```
 
 ---
 
-## 🔐 Features Included
+##  Features Included
 
-✅ User authentication with JWT
-✅ Add/edit/delete transactions
-✅ Dashboard with balance & stats
-✅ Interactive charts (Recharts)
-✅ Category-wise analytics
-✅ Monthly spending trends
-✅ Responsive design
-✅ Production-ready code
+ User authentication with JWT
+ Add/edit/delete transactions
+ Dashboard with balance & stats
+ Interactive charts (Recharts)
+ Category-wise analytics
+ Monthly spending trends
+ Responsive design
+ Production-ready code
 
 ---
 
-## 🐛 Common Issues & Solutions
+##  Common Issues & Solutions
 
 ### "Cannot find module"
 ```bash
@@ -124,7 +124,7 @@ PORT=3001 npm start
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 | File | Purpose |
 |------|---------|
@@ -136,7 +136,7 @@ PORT=3001 npm start
 
 ---
 
-## 🎯 Next Steps
+##  Next Steps
 
 1. **Add more transactions** to see analytics in action
 2. **Deploy frontend** to AWS S3 (see DEPLOYMENT.md)
@@ -146,7 +146,7 @@ PORT=3001 npm start
 
 ---
 
-## 🔑 API Key Routes
+##  API Key Routes
 
 ```
 POST   /api/auth/register     - Create account
@@ -160,7 +160,7 @@ GET    /api/transactions/analytics/summary - Get charts data
 
 ---
 
-## 📊 Sample Test Data
+##  Sample Test Data
 
 ```json
 {
@@ -174,7 +174,7 @@ GET    /api/transactions/analytics/summary - Get charts data
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. Use Postman to test API endpoints
 2. Check browser console (F12) for errors
@@ -184,7 +184,7 @@ GET    /api/transactions/analytics/summary - Get charts data
 
 ---
 
-## 🆘 Need Help?
+##  Need Help?
 
 1. Check the detailed documentation files
 2. Look at console errors (F12)
@@ -194,8 +194,9 @@ GET    /api/transactions/analytics/summary - Get charts data
 
 ---
 
-## 🎉 You're All Set!
+##  You're All Set!
 
 Your full-stack Expense Tracker is ready to use. Start tracking your finances!
 
-**Happy expense tracking! 💰**
+**Happy expense tracking! **
+

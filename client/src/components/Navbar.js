@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Navbar Component
  * Navigation header with user menu and logout
  */
@@ -21,7 +21,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/dashboard" className="navbar-brand" aria-label="Expense Tracker Dashboard Home">
-          <span className="brand-icon" aria-hidden="true">💰</span>
+          <span className="brand-icon" aria-hidden="true"></span>
           <span className="brand-text">Expense Tracker</span>
         </Link>
         <div className="nav-links">
@@ -60,3 +60,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

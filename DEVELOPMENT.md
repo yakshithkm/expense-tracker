@@ -1,4 +1,4 @@
-# 🛠️ Development Guidelines
+#  Development Guidelines
 
 Best practices and development workflow for the Expense Tracker project.
 
@@ -6,30 +6,30 @@ Best practices and development workflow for the Expense Tracker project.
 
 ```
 expense-tracker/
-├── client/                 # React Frontend
-│   ├── public/            # Static files
-│   ├── src/
-│   │   ├── components/    # Reusable React components
-│   │   ├── pages/         # Page components
-│   │   ├── context/       # Global state (AuthContext, TransactionContext)
-│   │   ├── styles/        # CSS modules
-│   │   ├── App.js         # Main app component
-│   │   └── index.js       # Entry point
-│   └── package.json
-│
-├── server/                 # Express Backend
-│   ├── config/            # Configuration files
-│   ├── models/            # Mongoose schemas
-│   ├── controllers/       # Business logic
-│   ├── routes/            # API endpoints
-│   ├── middleware/        # Express middleware
-│   ├── server.js          # Main server file
-│   └── package.json
-│
-└── Documentation files
++-- client/                 # React Frontend
+�   +-- public/            # Static files
+�   +-- src/
+�   �   +-- components/    # Reusable React components
+�   �   +-- pages/         # Page components
+�   �   +-- context/       # Global state (AuthContext, TransactionContext)
+�   �   +-- styles/        # CSS modules
+�   �   +-- App.js         # Main app component
+�   �   +-- index.js       # Entry point
+�   +-- package.json
+�
++-- server/                 # Express Backend
+�   +-- config/            # Configuration files
+�   +-- models/            # Mongoose schemas
+�   +-- controllers/       # Business logic
+�   +-- routes/            # API endpoints
+�   +-- middleware/        # Express middleware
+�   +-- server.js          # Main server file
+�   +-- package.json
+�
++-- Documentation files
 ```
 
-## 🎯 Code Style Guidelines
+##  Code Style Guidelines
 
 ### JavaScript/React
 
@@ -126,7 +126,7 @@ body { font-family: Arial, sans-serif; }
 
 ---
 
-## 📦 Backend Development
+##  Backend Development
 
 ### Adding New Route
 
@@ -208,7 +208,7 @@ router.post('/', async (req, res) => {
 
 ---
 
-## 🎨 Frontend Development
+##  Frontend Development
 
 ### Adding New Component
 
@@ -275,7 +275,7 @@ const fetchData = async () => {
 
 ---
 
-## 🧪 Testing Guidelines
+##  Testing Guidelines
 
 ### Backend Testing (Manual)
 
@@ -292,7 +292,7 @@ curl -X GET http://localhost:5000/api/transactions \
 1. Check console for errors (F12)
 2. Verify API calls in Network tab
 3. Test all user flows:
-   - Register → Login → Add transaction → View dashboard → Logout
+   - Register ? Login ? Add transaction ? View dashboard ? Logout
    - Test form validation
    - Test error handling
 
@@ -314,7 +314,7 @@ curl -X GET http://localhost:5000/api/transactions \
 
 ---
 
-## 🔍 Debugging
+##  Debugging
 
 ### Backend Debugging
 
@@ -357,7 +357,7 @@ pm2 logs
 
 ---
 
-## 📝 Git Workflow
+##  Git Workflow
 
 ### Commit Messages
 
@@ -408,7 +408,7 @@ git push origin feature/add-export-csv
 
 ---
 
-## 🚀 Performance Optimization
+##  Performance Optimization
 
 ### Frontend
 
@@ -443,7 +443,7 @@ const transactions = await Transaction.find({ userId })
 
 ---
 
-## 📚 Adding Dependencies
+##  Adding Dependencies
 
 ### Frontend
 
@@ -480,7 +480,7 @@ npm audit fix
 
 ---
 
-## 🔒 Security Best Practices
+##  Security Best Practices
 
 1. **Never commit `.env`**: Use `.env.example` instead
 2. **Validate all inputs**: Server-side validation is mandatory
@@ -492,7 +492,7 @@ npm audit fix
 
 ---
 
-## 📚 Resources
+##  Resources
 
 - [React Documentation](https://react.dev/)
 - [Express.js Guide](https://expressjs.com/)
@@ -508,7 +508,7 @@ npm audit fix
 
 ```bash
 # Delete all data (MongoDB)
-# Go to MongoDB Atlas → Collections → Delete collection
+# Go to MongoDB Atlas ? Collections ? Delete collection
 ```
 
 ### Clearing Frontend Cache
@@ -518,7 +518,7 @@ npm audit fix
 localStorage.clear();
 
 # Clear browser cache
-# Dev Tools → Application → Clear storage
+# Dev Tools ? Application ? Clear storage
 ```
 
 ### Restarting Servers
@@ -533,7 +533,7 @@ npm start (restart process)
 
 ---
 
-## 🎓 Learning Resources
+##  Learning Resources
 
 - Learn React: [React Tutorial](https://react.dev/learn)
 - Learn Express: [Express Guide](https://expressjs.com/en/starter/basic-routing.html)
@@ -541,4 +541,5 @@ npm start (restart process)
 
 ---
 
-**Happy coding! 💻**
+**Happy coding! **
+
