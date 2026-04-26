@@ -42,7 +42,7 @@ const onboardingSteps = [
 ];
 
 const Landing = () => {
-  const logoSrc = `${process.env.PUBLIC_URL}/favicon.svg`;
+  const logoSrc = `${process.env.PUBLIC_URL}/logo.png`;
 
   return (
     <div className="landing-page">
