@@ -21,7 +21,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/dashboard" className="navbar-brand" aria-label="Expense Tracker Dashboard Home">
-          <span className="brand-icon" aria-hidden="true"></span>
+          <img src="/favicon.png" alt="" className="navbar-logo" aria-hidden="true" />
           <span className="brand-text">Expense Tracker</span>
         </Link>
         <div className="nav-links">

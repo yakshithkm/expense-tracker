@@ -47,7 +47,7 @@ const Landing = () => {
       <header className="landing-navbar">
         <div className="landing-nav-inner">
           <Link to="/" className="landing-brand" aria-label="Expense Tracker Home">
-            <span className="brand-icon" aria-hidden="true"></span>
+            <img src="/favicon.png" alt="" className="landing-logo" aria-hidden="true" />
             <span className="brand-text">Expense Tracker</span>
           </Link>
 
