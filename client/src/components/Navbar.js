@@ -11,7 +11,7 @@ const Navbar = () => {
   const { user, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  const logoSrc = `${process.env.PUBLIC_URL}/favicon.png`;
+  const logoSrc = `${process.env.PUBLIC_URL}/favicon.svg`;
 
   const handleLogout = () => {
     logout();
