@@ -54,8 +54,8 @@ const Landing = () => {
               alt=""
               className="landing-logo"
               aria-hidden="true"
-              width="32"
-              height="32"
+              width="40"
+              height="40"
             />
             <span className="brand-text">Expense Tracker</span>
           </Link>

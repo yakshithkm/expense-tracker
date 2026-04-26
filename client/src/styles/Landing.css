@@ -35,14 +35,14 @@
   color: var(--text-color);
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.65rem;
   font-weight: 700;
   font-size: 1.05rem;
 }
 
 .landing-logo {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
