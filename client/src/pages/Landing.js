@@ -42,21 +42,12 @@ const onboardingSteps = [
 ];
 
 const Landing = () => {
-  const logoSrc = `${process.env.PUBLIC_URL}/logo.png`;
-
   return (
     <div className="landing-page">
       <header className="landing-navbar">
         <div className="landing-nav-inner">
           <Link to="/" className="landing-brand" aria-label="Expense Tracker Home">
-            <img
-              src={logoSrc}
-              alt=""
-              className="landing-logo"
-              aria-hidden="true"
-              width="48"
-              height="48"
-            />
+            <span className="brand-icon" aria-hidden="true">💰</span>
             <span className="brand-text">Expense Tracker</span>
           </Link>
 

@@ -11,7 +11,6 @@ const Navbar = () => {
   const { user, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  const logoSrc = `${process.env.PUBLIC_URL}/logo.png`;
 
   const handleLogout = () => {
     logout();
@@ -22,14 +21,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/dashboard" className="navbar-brand" aria-label="Expense Tracker Dashboard Home">
-          <img
-            src={logoSrc}
-            alt=""
-            className="navbar-logo"
-            aria-hidden="true"
-            width="48"
-            height="48"
-          />
+          <span className="brand-icon" aria-hidden="true">💰</span>
           <span className="brand-text">Expense Tracker</span>
         </Link>
         <div className="nav-links">
