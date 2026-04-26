@@ -27,8 +27,8 @@ const Navbar = () => {
             alt=""
             className="navbar-logo"
             aria-hidden="true"
-            width="40"
-            height="40"
+            width="48"
+            height="48"
           />
           <span className="brand-text">Expense Tracker</span>
         </Link>
