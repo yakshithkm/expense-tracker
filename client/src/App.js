@@ -2,7 +2,7 @@
  * Main App Component
  * Sets up routing and global state providers
  */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { TransactionProvider } from './context/TransactionContext';
@@ -18,29 +18,6 @@ import './App.css';
 const AppContent = () => {
   const { isAuthenticated, loading, authReady } = useAuth();
   const location = useLocation();
-
-  useEffect(() => {
-    const faviconHref = `${process.env.PUBLIC_URL}/favicon.svg`;
-
-    const ensureIconLink = (relValue, typeValue) => {
-      let link = document.querySelector(`link[rel="${relValue}"]`);
-
-      if (!link) {
-        link = document.createElement('link');
-        link.setAttribute('rel', relValue);
-        document.head.appendChild(link);
-      }
-
-      if (typeValue) {
-        link.setAttribute('type', typeValue);
-      }
-
-      link.setAttribute('href', faviconHref);
-    };
-
-    ensureIconLink('icon', 'image/svg+xml');
-    ensureIconLink('shortcut icon');
-  }, [location.pathname]);
 
   if (!authReady || loading) {
     return <div className="loading-container">Loading...</div>;
